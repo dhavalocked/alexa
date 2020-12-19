@@ -1,0 +1,272 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "bookmyshow app",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "UserNameIntent",
+          "slots": [
+            {
+              "name": "userName",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "its {userName}",
+            "{userName} this side",
+            "Hey I am {userName}",
+            "My Name is {userName}"
+          ]
+        },
+        {
+          "name": "NothingHandler",
+          "slots": [],
+          "samples": [
+            "dont ",
+            "literally nothing",
+            "nothing"
+          ]
+        },
+        {
+          "name": "OrderIntent",
+          "slots": [
+            {
+              "name": "movieName",
+              "type": "movieName",
+              "samples": [
+                "i would like to go for {movieName} movie ",
+                "please book {movieName}"
+              ]
+            },
+            {
+              "name": "venueName",
+              "type": "venueName",
+              "samples": [
+                "venue {venueName}",
+                "I would likve to go to {venueName}"
+              ]
+            },
+            {
+              "name": "showDate",
+              "type": "AMAZON.DATE",
+              "samples": [
+                "book on {showDate}"
+              ]
+            },
+            {
+              "name": "showTime",
+              "type": "AMAZON.TIME",
+              "samples": [
+                "book for {showTime}"
+              ]
+            }
+          ],
+          "samples": [
+            "book tickets for {movieName} at {venueName}  on {showDate}  at {showTime}",
+            "book tickets for {movieName} at {venueName}  on {showDate}",
+            "book tickets for {movieName} at {venueName}",
+            "book tickets for {movieName} ",
+            "Please book a movie "
+          ]
+        },
+        {
+          "name": "OrderConfirmIntent",
+          "slots": [],
+          "samples": [
+            "Yes i would love it.",
+            "Please book the same",
+            "Yes please",
+            "Please go ahead and book"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Bad boy"
+              }
+            },
+            {
+              "name": {
+                "value": "Kaala"
+              }
+            },
+            {
+              "name": {
+                "value": "Wonder woman"
+              }
+            },
+            {
+              "name": {
+                "value": "Tenet"
+              }
+            }
+          ],
+          "name": "movieName"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "PVR andheri"
+              }
+            },
+            {
+              "name": {
+                "value": "New vista test cinema"
+              }
+            },
+            {
+              "name": {
+                "value": "PVR Dynamix juhu"
+              }
+            }
+          ],
+          "name": "venueName"
+        }
+      ],
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "OrderIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.1023134862828"
+          },
+          "slots": [
+            {
+              "name": "movieName",
+              "type": "movieName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.82944670586.502646386069"
+              }
+            },
+            {
+              "name": "venueName",
+              "type": "venueName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.873957926494.1386821992312"
+              }
+            },
+            {
+              "name": "showDate",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.873957926494.228823859235"
+              }
+            },
+            {
+              "name": "showTime",
+              "type": "AMAZON.TIME",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.873957926494.571233014623"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.82944670586.502646386069",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Give me the movie name please"
+          },
+          {
+            "type": "PlainText",
+            "value": "which movie would you like to watch"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.873957926494.228823859235",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ok, what date should i book it for "
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.873957926494.1386821992312",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Give me the venue name. i have  PVR andheri , new vista test cinema and Pvr Juhu"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.873957926494.571233014623",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "give me show time, I have twelve , three and six PM "
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.1023134862828",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "i see you want me to book a ticket for {movieName} at {venueName} on {showDate} at {showTime} . Shall i confirm this booking?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "12"
+}
